@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Velocity & Legacy</title>
+    <!-- Tailwind CSS for modern and fast styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Racing and futuristic fonts from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .font-racing { font-family: 'Orbitron', sans-serif; }
+        .font-main { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-black text-white font-main overflow-x-hidden">
+
+    <!-- 1. HERO SECTION (MAIN SCREEN) -->
+    <section class="relative min-h-screen flex flex-col justify-between p-6 md:p-12 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-900 via-black to-black">
+        
+        <!-- Header / Navigation -->
+        <header class="flex justify-between items-center w-full z-10">
+            <div class="text-2xl font-black tracking-widest font-racing text-red-600">F1.VELOCITY</div>
+            <nav class="hidden md:flex space-x-8 text-sm uppercase tracking-wider text-neutral-400 font-racing">
+                <a href="#garage" class="hover:text-white transition-colors">Garage</a>
+                <a href="#legends" class="hover:text-white transition-colors">Legends</a>
+            </nav>
+            <button class="border border-neutral-700 px-4 py-2 text-xs uppercase tracking-widest font-racing hover:bg-white hover:text-black transition-all">
+                Enter Garages
+            </button>
+        </header>
+
+        <!-- Main Heading & CTA -->
+        <div class="my-auto text-center z-10 max-w-4xl mx-auto space-y-6">
+            <p class="text-xs md:text-sm uppercase tracking-[0.3em] text-neutral-500 font-racing">An Immersive Encyclopedia of Speed</p>
+            <h1 class="text-5xl md:text-8xl font-black font-racing tracking-tighter leading-none uppercase bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-500">
+                Legacy of <br><span class="text-red-600">Speed</span>
+            </h1>
+            <p class="text-neutral-400 text-sm md:text-base max-w-lg mx-auto font-light">
+                From the wooden steering wheels of the 1950s to the carbon-fiber monsters of today. Explore legendary drivers and get under the hood of evolution.
+            </p>
+            <div class="pt-4">
+                <a href="#garage" class="bg-red-600 text-white font-racing uppercase tracking-widest text-xs px-8 py-4 font-bold shadow-[0_0_30px_rgba(220,38,38,0.3)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)] hover:bg-red-500 transition-all inline-block">
+                    Explore Garage
+                </a>
+            </div>
+        </div>
+
+        <!-- Cockpit Live Stats Dashboard -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-neutral-900 pt-6 w-full z-10 text-left">
+            <div>
+                <p class="text-[10px] uppercase tracking-widest text-neutral-500 font-racing">Seasons</p>
+                <p class="text-xl md:text-2xl font-bold font-racing">75+</p>
+            </div>
+            <div>
+                <p class="text-[10px] uppercase tracking-widest text-neutral-500 font-racing">Iconic Tracks</p>
+                <p class="text-xl md:text-2xl font-bold font-racing">30+</p>
+            </div>
+            <div>
+                <p class="text-[10px] uppercase tracking-widest text-neutral-500 font-racing">Top Speed</p>
+                <p class="text-xl md:text-2xl font-bold font-racing text-red-500">378 KM/H</p>
+            </div>
+            <div>
+                <p class="text-[10px] uppercase tracking-widest text-neutral-500 font-racing">Max Cornering G-Force</p>
+                <p class="text-xl md:text-2xl font-bold font-racing">5G+</p>
+            </div>
+        </div>
+
+        <!-- Background Cinematic Glow -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none mix-blend-screen z-0">
+            <div class="w-[80vw] h-[40vh] bg-neutral-800 rounded-full blur-[120px]"></div>
+        </div>
+    </section>
+
+
+    <!-- 2. INTERACTIVE EVOLUTION GARAGE -->
+    <section id="garage" class="py-20 px-6 md:p-12 max-w-7xl mx-auto border-t border-neutral-900">
+        
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+            <div>
+                <p class="text-xs uppercase tracking-widest text-red-500 font-racing mb-2">// INTERACTIVE SHIFT</p>
+                <h2 class="text-3xl md:text-5xl font-black font-racing uppercase">Car Evolution</h2>
+            </div>
+            <!-- Interactive Switch Buttons -->
+            <div class="flex flex-wrap gap-2 font-racing text-xs">
+                <button onclick="switchEra('retro')" id="btn-retro" class="era-btn px-4 py-2 border border-red-600 bg-red-600 text-white transition-all uppercase tracking-wider font-bold">1950s: The Dawn</button>
+                <button onclick="switchEra('classic')" id="btn-classic" class="era-btn px-4 py-2 border border-neutral-800 hover:border-neutral-500 text-neutral-400 hover:text-white transition-all uppercase tracking-wider">1980s: Turbo Era</button>
+                <button onclick="switchEra('modern')" id="btn-modern" class="era-btn px-4 py-2 border border-neutral-800 hover:border-neutral-500 text-neutral-400 hover:text-white transition-all uppercase tracking-wider">Modern: Hybrids</button>
+            </div>
+        </div>
+
+        <!-- Interactive Specs Display Container -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-neutral-950 p-6 md:p-12 border border-neutral-900 rounded-lg relative overflow-hidden">
+            
+            <!-- Left Panel: Technical Specs Data -->
+            <div class="lg:col-span-4 space-y-6 z-10 order-2 lg:order-1">
+                <div>
+                    <h3 id="car-name" class="text-2xl md:text-3xl font-black font-racing uppercase text-white">Maserati 250F</h3>
+                    <p id="car-desc" class="text-neutral-400 text-sm font-light mt-2">The masterpiece driven by Juan Manuel Fangio. Front-engine layout, wire wheels, drum brakes, and absolutely zero safety belts. Pure bravery and raw mechanics.</p>
+                </div>
+                
+                <!-- Performance Progress Bars -->
+                <div class="space-y-3 border-t border-neutral-900 pt-6">
+                    <div>
+                        <div class="flex justify-between text-xs font-racing uppercase text-neutral-500 mb-1">
+                            <span>Power Output</span>
+                            <span id="stat-power-val">270 BHP</span>
+                        </div>
+                        <div class="w-full bg-neutral-900 h-1.5 rounded-full overflow-hidden">
+                            <div id="stat-power-bar" class="bg-red-600 h-full transition-all duration-500" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-racing uppercase text-neutral-500 mb-1">
+                            <span>Minimum Weight</span>
+                            <span id="stat-weight-val">630 KG</span>
+                        </div>
+                        <div class="w-full bg-neutral-900 h-1.5 rounded-full overflow-hidden">
+                            <div id="stat-weight-bar" class="bg-red-600 h-full transition-all duration-500" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-racing uppercase text-neutral-500 mb-1">
+                            <span>Aerodynamic Downforce</span>
+                            <span id="stat-down-val">0 KG (No Wings)</span>
+                        </div>
+                        <div class="w-full bg-neutral-900 h-1.5 rounded-full overflow-hidden">
+                            <div id="stat-down-bar" class="bg-red-600 h-full transition-all duration-500" style="width: 5%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Visual Placeholder -->
+            <div class="lg:col-span-8 flex flex-col justify-center items-center relative min-h-[300px] md:min-h-[400px] z-10 order-1 lg:order-2">
+                <div id="glow-effect" class="absolute w-64 h-64 bg-red-600/10 rounded-full blur-[80px] pointer-events-none"></div>
+                
+                <div id="car-image-placeholder" class="text-center font-racing transition-all duration-500 transform scale-100">
+                    <span id="car-silhouette" class="text-7xl md:text-9xl block select-none filter drop-shadow-[0_0_20px_rgba(220,38,38,0.3)]">🏎️</span>
+                    <p id="car-year" class="text-5xl md:text-7xl font-black text-neutral-900 mt-4 tracking-widest">1954</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 3. F1 LEGENDS GALLERY -->
+    <section id="legends" class="py-20 px-6 md:p-12 max-w-7xl mx-auto border-t border-neutral-900">
+        
+        <div class="mb-12">
+            <p class="text-xs uppercase tracking-widest text-red-500 font-racing mb-2">// HALL OF FAME</p>
+            <h2 class="text-3xl md:text-5xl font-black font-racing uppercase">The Legends</h2>
+        </div>
+
+        <!-- Drivers Grid Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Card 1: Ayrton Senna -->
+            <div class="group bg-neutral-950 border border-neutral-900 rounded-lg p-6 flex flex-col justify-between hover:border-red-600 transition-all duration-300 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] relative overflow-hidden">
+                <div class="absolute -right-8 -top-8 text-9xl font-black text-neutral-900/40 font-racing select-none group-hover:text-red-600/10 transition-colors">1</div>
+                <div class="space-y-4 z-10">
+                    <span class="text-xs font-racing bg-neutral-900 text-neutral-400 px-3 py-1 rounded-full border border-neutral-800 group-hover:border-red-600/50 transition-colors">3x World Champion</span>
+                    <h3 class="text-2xl font-black font-racing uppercase mt-2">Ayrton Senna</h3>
+                    <p class="text-neutral-400 text-sm font-light leading-relaxed">
+                        "The Magic". A pure symbol of raw, unadulterated speed. His legendary wet-weather masterclasses and uncompromising driving style redefined the mindset of Formula 1 forever.
+                    </p>
+                </div>
+                <div class="border-t border-neutral-900 pt-4 mt-6 flex justify-between items-center text-xs font-racing text-neutral-500 group-hover:text-white transition-colors">
+                    <span>WINS: 41</span>
+                    <span>POLES: 65</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Michael Schumacher -->
+            <div class="group bg-neutral-950 border border-neutral-900 rounded-lg p-6 flex flex-col justify-between hover:border-red-600 transition-all duration-300 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] relative overflow-hidden">
+                <div class="absolute -right-8 -top-8 text-9xl font-black text-neutral-900/40 font-racing select-none group-hover:text-red-600/10 transition-colors">7</div>
+                <div class="space-y-4 z-10">
+                    <span class="text-xs font-racing bg-neutral-900 text-neutral-400 px-3 py-1 rounded-full border border-neutral-800 group-hover:border-red-600/50 transition-colors">7x World Champion</span>
+                    <h3 class="text-2xl font-black font-racing uppercase mt-2">Michael Schumacher</h3>
+                    <p class="text-neutral-400 text-sm font-light leading-relaxed">
+                        "The Red Baron" who built the modern Ferrari empire. Ruthless discipline, supreme physical fitness, and an era of total psychological dominance over the entire grid.
+                    </p>
+                </div>
+                <div class="border-t border-neutral-900 pt-4 mt-6 flex justify-between items-center text-xs font-racing text-neutral-500 group-hover:text-white transition-colors">
+                    <span>WINS: 91</span>
+                    <span>PODIUMS: 155</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Lewis Hamilton -->
+            <div class="group bg-neutral-950 border border-neutral-900 rounded-lg p-6 flex flex-col justify-between hover:border-red-600 transition-all duration-300 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] relative overflow-hidden">
+                <div class="absolute -right-8 -top-8 text-9xl font-black text-neutral-900/40 font-racing select-none group-hover:text-red-600/10 transition-colors">44</div>
+                <div class="space-y-4 z-10">
+                    <span class="text-xs font-racing bg-neutral-900 text-neutral-400 px-3 py-1 rounded-full border border-neutral-800 group-hover:border-red-600/50 transition-colors">7x World Champion</span>
+                    <h3 class="text-2xl font-black font-racing uppercase mt-2">Lewis Hamilton</h3>
+                    <p class="text-neutral-400 text-sm font-light leading-relaxed">
+                        The ultimate record-breaker of the modern era. A driver who completely rewrote history by capturing the most wins and pole positions, becoming a global cultural icon.
+                    </p>
+                </div>
+                <div class="border-t border-neutral-900 pt-4 mt-6 flex justify-between items-center text-xs font-racing text-neutral-500 group-hover:text-white transition-colors">
+                    <span>WINS: 103</span>
+                    <span>POLES: 104</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 4. CLEAN PREMIUM FOOTER -->
+    <footer class="border-t border-neutral-900 py-8 px-6 text-center text-xs text-neutral-600 font-racing uppercase tracking-widest">
+        <p>© 2026 F1 Velocity Project. Engineered for Speed.</p>
+    </footer>
+
+
+    <!-- JAVASCRIPT ENGINE (LOGIC & INTERACTIVE INTERFACE) -->
+    <script>
+        // Database for fast real-time injection
+        const data = {
+            retro: {
+                name: "Maserati 250F",
+                desc: "The masterpiece driven by Juan Manuel Fangio. Front-engine layout, wire wheels, drum brakes, and absolutely zero safety belts. Pure bravery and raw mechanics.",
+                power: "270 BHP", pBar: "25%",
+                weight: "630 KG", wBar: "80%",
+                downforce: "0 KG (No Wings)", dBar: "5%",
+                year: "1954"
+            },
+            classic: {
+                name: "McLaren MP4/4",
+                desc: "The most dominant race car in history, conquered by Ayrton Senna and Alain Prost. 1.5L V6 Turbo, insane qualifying boost power, and the legendary red-and-white livery.",
+                power: "650-1200 BHP", pBar: "85%",
+                weight: "540 KG", wBar: "50%",
+                downforce: "Heavy (Wings Introduced)", dBar: "65%",
+                year: "1988"
+            },
+            modern: {
+                name: "Red Bull RB20",
+                desc: "An aerodynamic sculpture engineered by Adrian Newey. Highly complex V6 hybrid power unit, advanced DRS systems, ground-effect floors, and phenomenal high-speed cornering stability.",
+                power: "1000+ BHP", pBar: "100%",
+                weight: "798 KG", wBar: "100%",
+                downforce: "Extreme (Ceiling-Sticky)", dBar: "100%",
+                year: "2024"
+            }
+        };
+
+        function switchEra(era) {
+            // 1. Shift Active Classes on Buttons
+            document.querySelectorAll('.era-btn').forEach(btn => {
+                btn.classList.remove('bg-red-600', 'text-white', 'border-red-600');
+                btn.classList.add('border-neutral-800', 'text-neutral-400');
+            });
+            const activeBtn = document.getElementById(`btn-${era}`);
+            activeBtn.classList.add('bg-red-600', 'text-white', 'border-red-600');
+            activeBtn.classList.remove('border-neutral-800', 'text-neutral-400');
+
+            // Micro-animation scaling trigger
+            const placeholder = document.getElementById('car-image-placeholder');
+            placeholder.classList.add('scale-95', 'opacity-50');
+
+            setTimeout(() => {
+                // 2. Inject New Text Content
+                document.getElementById('car-name').innerText = data[era].name;
+                document.getElementById('car-desc').innerText = data[era].desc;
+                document.getElementById('car-year').innerText = data[era].year;
+
+                // 3. Animate Dynamic Progress Performance Bars
+                document.getElementById('stat-power-val').innerText = data[era].power;
+                document.getElementById('stat-power-bar').style.width = data[era].pBar;
+
+                document.getElementById('stat-weight-val').innerText = data[era].weight;
+                document.getElementById('stat-weight-bar').style.width = data[era].wBar;
+
+                document.getElementById('stat-down-val').innerText = data[era].downforce;
+                document.getElementById('stat-down-bar').style.width = data[era].dBar;
+
+                // Reset Scaling smooth transitions
+                placeholder.classList.remove('scale-95', 'opacity-50');
+            }, 150);
+        }
+    </script>
+</body>
+</html>
